@@ -3,10 +3,21 @@
         <div id="poker_table">
             <div id="card_area">
                     {% for card in cards %}
-                        <div class=card_poker_black>
+                        {% if card.1=="♦" or card.1=="♥"%}
+                            <div class="card_poker_red">
+                        {% else %}
+                            <div class="card_poker_black">
+                        {% endif %}
                             {{ card.0 }}
+
                             <div class="card_symbol">
-                                {{ card.1 }}
+                                {% if card.0!="K" and card.0!="Q" and card.0!="J" %}
+                                    {% for n in range(card.0|int) %}
+                                        {{ card.1 }}
+                                    {% endfor %}
+                                {% else %}
+                                    {{ card.1 }}
+                                {% endif %}
                             </div>
                         </div>
                     {% endfor %}

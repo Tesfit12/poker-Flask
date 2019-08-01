@@ -9,8 +9,8 @@ body
   background-position: center; /* Center the image */
   background-repeat: no-repeat; /* Do not repeat the image */
   background-size: cover; /* Resize the background image to cover the */
-  background-image: url("carpet.jpg");
-	background-color:#2D8616;
+  background-color:#2D8616;
+  background-image: radial-gradient(red,black);
 	height: 300px;
   width: 600px;
   margin: auto;
@@ -18,7 +18,7 @@ body
   padding: 50px;
   border-style: solid;
   border-width: 25px;
-  border-color: brown;	
+  border-color: brown;
 }
 
 .card_poker_red
@@ -49,12 +49,16 @@ body
 
 .card_symbol
 {
-	height: 50px;
-	width: 30px;
+  height: 50px;
+  width: 30px;
   border-style: solid;
   border-width: 1px;
-  margin: auto;	
-  border-color: black;	
+  margin: auto;
+  border-color: black;
+
+  word-wrap: break-word;
+  text-align: center;
+  font-size:10px;
 }
 
 #card_area
@@ -69,3 +73,4 @@ body
   border-width: 1px;
   border-color: black;
 }
+

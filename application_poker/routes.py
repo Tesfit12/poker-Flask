@@ -10,5 +10,8 @@ def index():
 @app.route('/poker')
 def launch_poker_game():
     cards=application_poker.poker_back_end.generate_cards(4)
+
+
+
     return flask.render_template('poker.html',cards=cards)
 
