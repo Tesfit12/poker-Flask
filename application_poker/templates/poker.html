@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+        <div id="poker_table">
+            <div id="card_area">
+                    {% for card in cards %}
+                        <div class=card_poker_black>
+                            {{ card.0 }}
+                            <div class="card_symbol">
+                                {{ card.1 }}
+                            </div>
+                        </div>
+                    {% endfor %}
+            </div>
+        </div>
+{% endblock %}
