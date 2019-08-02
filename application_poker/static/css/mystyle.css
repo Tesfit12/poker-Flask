@@ -11,7 +11,7 @@ body
   background-size: cover; /* Resize the background image to cover the */
   background-color:#2D8616;
   background-image: radial-gradient(red,black);
-	height: 300px;
+  height: 300px;
   width: 600px;
   margin: auto;
   border-radius:100px;
@@ -21,20 +21,7 @@ body
   border-color: brown;
 }
 
-.card_poker_red
-{
-  color:red;
-	background-color:white;
-	height: 80px;
-	width: 50px;
-	padding: 3px;
-  border-style: solid;
-  border-width: 2px;	
-  display: inline-block;
-  border-color: black;
-}
-
-.card_poker_black
+.card_poker_red,.card_poker_black
 {
   color:black;
   background-color:white;
@@ -42,15 +29,20 @@ body
   width: 50px;
   padding: 3px;
   border-style: solid;
-  border-width: 2px;  
-  display: inline-block;
+  border-width: 2px;	
+  display: inline-grid;
   border-color: black;
+}
+
+.card_poker_red
+{
+  color:red;
 }
 
 .card_symbol
 {
-  height: 50px;
-  width: 30px;
+  height: 60px;
+  width: 40px;
   border-style: solid;
   border-width: 1px;
   margin: auto;
@@ -59,6 +51,11 @@ body
   word-wrap: break-word;
   text-align: center;
   font-size:10px;
+}
+
+.card_symbol img{
+    width: 100%;
+    height: 100%;
 }
 
 #card_area

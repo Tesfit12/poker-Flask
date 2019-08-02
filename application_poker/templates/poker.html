@@ -16,7 +16,13 @@
                                         {{ card.1 }}
                                     {% endfor %}
                                 {% else %}
-                                    {{ card.1 }}
+                                    {% if card.0=="K" %}
+                                        <img src="{{ url_for('static', filename='images/face_k.png') }}">
+                                    {% elif card.0=="Q" %}
+                                        <img src="{{ url_for('static', filename='images/face_q.png') }}">
+                                    {% elif card.0=="J" %}
+                                        <img src="{{ url_for('static', filename='images/face_j.png') }}">
+                                    {% endif %}
                                 {% endif %}
                             </div>
                         </div>
