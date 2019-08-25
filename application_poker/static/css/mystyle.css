@@ -19,6 +19,7 @@ body
   border-style: solid;
   border-width: 25px;
   border-color: brown;
+  position:relative;
 }
 
 .card_poker_red,.card_poker_black
@@ -50,7 +51,7 @@ body
 
   word-wrap: break-word;
   text-align: center;
-  font-size:10px;
+  font-size:12px;
 }
 
 .card_symbol img{
@@ -71,3 +72,48 @@ body
   border-color: black;
 }
 
+#player_1, #player_2, #player_3, #player_4
+{
+    width:70px;
+    height:70px;
+    position:absolute;
+    background-image: radial-gradient(brown,black);
+    border-radius:35px;
+    border-width: 2px;
+    border-color: yellow;
+    border-style: solid;
+}
+
+#player_1
+{
+    top:-70px;
+    left:-70px;
+}
+
+#player_2
+{
+    top:-70px;
+    right:-70px;
+}
+
+#player_3
+{
+    bottom:-70px;
+    left:-70px;
+}
+
+#player_4
+{
+    bottom:-70px;
+    right:-70px;
+}
+
+#player_1 img, #player_2 img, #player_3 img, #player_4 img
+{
+    width:70px;
+    height:70px;
+    border-radius:35px;
+    border-width: 2px;
+    border-color: blue;
+    border-style: solid;
+}
