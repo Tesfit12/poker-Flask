@@ -18,33 +18,49 @@
             <p>
                 {{ form.name_1.label }}<br>
                 {{ form.name_1(size=20) }}
+                <span>{{ form.name_1.errors[0] }}</span>
             </p>
             <p>
                 {{ form.chips_1.label }}<br>
                 {{ form.chips_1() }}
+                <span>{{ form.chips_1.errors[0] }}</span>
+            </p>
+            <p>
+                {{ form.avatar_1.label }}<br>
+                {% for radio in form.avatar_1 %}
+
+                    {{ radio }}
+                    <img src="{{ url_for('static', filename='images/faces/'+radio.label|striptags) }}">
+                {% endfor %}
+                <span>{{ form.chips_1.errors[0] }}</span>
             </p>
         </div>
 
-                <div class="player_form">
+        <div class="player_form">
             <h2>Player 2</h2>
             <p>
                 {{ form.name_2.label }}<br>
                 {{ form.name_2(size=20) }}
+                <span>{{ form.name_2.errors[0] }}</span>
             </p>
             <p>
                 {{ form.chips_2.label }}<br>
                 {{ form.chips_2() }}
+                <span>{{ form.chips_2.errors[0] }}</span>
             </p>
         </div>
+
         <div class="player_form">
             <h2>Player 3</h2>
             <p>
                 {{ form.name_3.label }}<br>
                 {{ form.name_3(size=20) }}
+                <span>{{ form.name_3.errors[0] }}</span>
             </p>
             <p>
                 {{ form.chips_3.label }}<br>
                 {{ form.chips_3() }}
+                <span>{{ form.chips_3.errors[0] }}</span>
             </p>
         </div>
         <div class="player_form">
@@ -52,10 +68,12 @@
             <p>
                 {{ form.name_4.label }}<br>
                 {{ form.name_4(size=20) }}
+                <span>{{ form.name_4.errors[0] }}</span>
             </p>
             <p>
                 {{ form.chips_4.label }}<br>
                 {{ form.chips_4() }}
+                <span>{{ form.chips_1.errors[0] }}</span>
             </p>
         </div>
 
