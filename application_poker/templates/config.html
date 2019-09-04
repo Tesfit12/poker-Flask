@@ -28,11 +28,10 @@
             <p>
                 {{ form.avatar_1.label }}<br>
                 {% for radio in form.avatar_1 %}
-
                     {{ radio }}
-                    <img src="{{ url_for('static', filename='images/faces/'+radio.label|striptags) }}">
+                    <img class="avatar_form" src="{{ url_for('static', filename='images/faces/'+radio.label|striptags) }}">
                 {% endfor %}
-                <span>{{ form.chips_1.errors[0] }}</span>
+                <span>{{ form.avatar_1.errors[0] }}</span>
             </p>
         </div>
 
@@ -48,6 +47,15 @@
                 {{ form.chips_2() }}
                 <span>{{ form.chips_2.errors[0] }}</span>
             </p>
+            <p>
+                {{ form.avatar_2.label }}<br>
+                {% for radio in form.avatar_2 %}
+
+                    {{ radio }}
+                    <img class="avatar_form" src="{{ url_for('static', filename='images/faces/'+radio.label|striptags) }}">
+                {% endfor %}
+                <span>{{ form.avatar_2.errors[0] }}</span>
+            </p>
         </div>
 
         <div class="player_form">
@@ -62,6 +70,15 @@
                 {{ form.chips_3() }}
                 <span>{{ form.chips_3.errors[0] }}</span>
             </p>
+            <p>
+                {{ form.avatar_3.label }}<br>
+                {% for radio in form.avatar_3 %}
+
+                    {{ radio }}
+                    <img class="avatar_form" src="{{ url_for('static', filename='images/faces/'+radio.label|striptags) }}">
+                {% endfor %}
+                <span>{{ form.avatar_3.errors[0] }}</span>
+            </p>
         </div>
         <div class="player_form">
             <h2>Player 4</h2>
@@ -75,16 +92,18 @@
                 {{ form.chips_4() }}
                 <span>{{ form.chips_1.errors[0] }}</span>
             </p>
+            <p>
+                {{ form.avatar_4.label }}<br>
+                {% for radio in form.avatar_4 %}
+
+                    {{ radio }}
+                    <img class="avatar_form" src="{{ url_for('static', filename='images/faces/'+radio.label|striptags) }}">
+                {% endfor %}
+                <span>{{ form.avatar_4.errors[0] }}</span>
+            </p>
         </div>
 
 
         <p>{{ form.submit() }}</p>
-
-#       {% for avatar in form.avatar_1 %}
-#            <tr>
-#                <td>{{ avatar }}</td>
-#                <td>{{ avatar.label }}</td>
-#            </tr>
-#        {% endfor %}
     </form>
 {% endblock %}

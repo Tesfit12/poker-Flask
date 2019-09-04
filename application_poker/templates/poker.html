@@ -4,7 +4,7 @@
             {% for n in range(4) %}
                 {% if players|length>n %}
                     <div id="player_{{ n+1 }}">
-                        <img src="{{ url_for('static', filename='images/faces/avatar_1.png') }}">
+                        <img src="{{ url_for('static', filename='images/faces/'+players[n].avatar) }}">
                          <div class="player_property">
                             Name: {{ players[n].name }}<br>
                             Chips: {{ players[n].chips }}

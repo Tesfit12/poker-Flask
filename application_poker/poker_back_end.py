@@ -18,8 +18,9 @@ def generate_cards(number):
 
 
 class Player():
-    def __init__(self,name,chips):
+    def __init__(self,name,chips,avatar):
         self.name=name
         self.chips=chips
+        self.avatar=avatar
 
 players=[]

@@ -111,6 +111,13 @@ body
 .player_property
 {
     background-color:#FFFFCC;
+    padding:5px;
+    border-radius:15px;
+    border-width: 2px;
+    border-color: blue;
+    border-style: solid;
+
+
 }
 
 
@@ -126,12 +133,20 @@ body
 
 .player_form
 {
-    border-radius:35px;
+    border-radius:30px;
     border-width: 2px;
     border-color: red;
     border-style: solid;
     background:#F9D957;
-    padding:20px;
+    padding:10px;
     margin:10px;
-    font-size:20px;
+    font-size:15px;
+    width:50%;
+}
+
+
+.avatar_form
+{
+    width:50px;
+    height:50px;
 }

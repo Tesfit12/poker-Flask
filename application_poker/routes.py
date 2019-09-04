@@ -15,16 +15,16 @@ def config_game():
 
     if form.validate_on_submit():
 
-        player=back_end.Player(form.name_1.data,int(form.chips_1.data))
+        player=back_end.Player(form.name_1.data,int(form.chips_1.data),form.avatar_1.data)
         back_end.players.append(player)
 
-        player=back_end.Player(form.name_2.data,int(form.chips_2.data))
+        player=back_end.Player(form.name_2.data,int(form.chips_2.data),form.avatar_2.data)
         back_end.players.append(player)
 
-        player=back_end.Player(form.name_3.data,int(form.chips_3.data))
+        player=back_end.Player(form.name_3.data,int(form.chips_3.data),form.avatar_3.data)
         back_end.players.append(player)
 
-        player=back_end.Player(form.name_4.data,int(form.chips_4.data))
+        player=back_end.Player(form.name_4.data,int(form.chips_4.data),form.avatar_4.data)
         back_end.players.append(player)
 
 
