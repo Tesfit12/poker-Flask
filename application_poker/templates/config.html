@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% block content %}
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+<ul>
+    {% for message in messages %}
+    <li>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+{% endwith %}
+    <h1>Player Register</h1>
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+
+        <div class="player_form">
+            <h2>Player 1</h2>
+            <p>
+                {{ form.name_1.label }}<br>
+                {{ form.name_1(size=20) }}
+            </p>
+            <p>
+                {{ form.chips_1.label }}<br>
+                {{ form.chips_1() }}
+            </p>
+        </div>
+
+                <div class="player_form">
+            <h2>Player 2</h2>
+            <p>
+                {{ form.name_2.label }}<br>
+                {{ form.name_2(size=20) }}
+            </p>
+            <p>
+                {{ form.chips_2.label }}<br>
+                {{ form.chips_2() }}
+            </p>
+        </div>
+        <div class="player_form">
+            <h2>Player 3</h2>
+            <p>
+                {{ form.name_3.label }}<br>
+                {{ form.name_3(size=20) }}
+            </p>
+            <p>
+                {{ form.chips_3.label }}<br>
+                {{ form.chips_3() }}
+            </p>
+        </div>
+        <div class="player_form">
+            <h2>Player 4</h2>
+            <p>
+                {{ form.name_4.label }}<br>
+                {{ form.name_4(size=20) }}
+            </p>
+            <p>
+                {{ form.chips_4.label }}<br>
+                {{ form.chips_4() }}
+            </p>
+        </div>
+
+
+        <p>{{ form.submit() }}</p>
+
+#       {% for avatar in form.avatar_1 %}
+#            <tr>
+#                <td>{{ avatar }}</td>
+#                <td>{{ avatar.label }}</td>
+#            </tr>
+#        {% endfor %}
+    </form>
+{% endblock %}

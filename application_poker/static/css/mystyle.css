@@ -108,6 +108,12 @@ body
     right:-70px;
 }
 
+.player_property
+{
+    background-color:#FFFFCC;
+}
+
+
 #player_1 img, #player_2 img, #player_3 img, #player_4 img
 {
     width:70px;
@@ -116,4 +122,16 @@ body
     border-width: 2px;
     border-color: blue;
     border-style: solid;
+}
+
+.player_form
+{
+    border-radius:35px;
+    border-width: 2px;
+    border-color: red;
+    border-style: solid;
+    background:#F9D957;
+    padding:20px;
+    margin:10px;
+    font-size:20px;
 }

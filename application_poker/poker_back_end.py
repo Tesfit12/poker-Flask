@@ -15,3 +15,10 @@ def generate_cards(number):
 
         gen_card.append((random_value,random_symbol))
     return gen_card
+
+
+class Player():
+    def __init__(self,name,chips):
+        self.name=name
+        self.chips=chips
+
