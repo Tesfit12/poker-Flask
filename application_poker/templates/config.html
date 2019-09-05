@@ -9,101 +9,45 @@
 </ul>
 {% endif %}
 {% endwith %}
+{% set player_1={'name':form.name_1,'chips':form.chips_1,'avatar':form.avatar_1} %}
+{% set player_2={'name':form.name_2,'chips':form.chips_2,'avatar':form.avatar_2} %}
+{% set player_3={'name':form.name_3,'chips':form.chips_3,'avatar':form.avatar_3} %}
+{% set player_4={'name':form.name_4,'chips':form.chips_4,'avatar':form.avatar_4} %}
+{% set form_list=[player_1,player_2,player_3,player_4]%}
+
     <h1>Player Register</h1>
     <form action="" method="post" novalidate>
-        {{ form.hidden_tag() }}
-
-        <div class="player_form">
-            <h2>Player 1</h2>
-            <p>
-                {{ form.name_1.label }}<br>
-                {{ form.name_1(size=20) }}
-                <span>{{ form.name_1.errors[0] }}</span>
-            </p>
-            <p>
-                {{ form.chips_1.label }}<br>
-                {{ form.chips_1() }}
-                <span>{{ form.chips_1.errors[0] }}</span>
-            </p>
-            <p>
-                {{ form.avatar_1.label }}<br>
-                {% for radio in form.avatar_1 %}
-                    {{ radio }}
-                    <img class="avatar_form" src="{{ url_for('static', filename='images/faces/'+radio.label|striptags) }}">
-                {% endfor %}
-                <span>{{ form.avatar_1.errors[0] }}</span>
-            </p>
-        </div>
-
-        <div class="player_form">
-            <h2>Player 2</h2>
-            <p>
-                {{ form.name_2.label }}<br>
-                {{ form.name_2(size=20) }}
-                <span>{{ form.name_2.errors[0] }}</span>
-            </p>
-            <p>
-                {{ form.chips_2.label }}<br>
-                {{ form.chips_2() }}
-                <span>{{ form.chips_2.errors[0] }}</span>
-            </p>
-            <p>
-                {{ form.avatar_2.label }}<br>
-                {% for radio in form.avatar_2 %}
-
-                    {{ radio }}
-                    <img class="avatar_form" src="{{ url_for('static', filename='images/faces/'+radio.label|striptags) }}">
-                {% endfor %}
-                <span>{{ form.avatar_2.errors[0] }}</span>
-            </p>
-        </div>
-
-        <div class="player_form">
-            <h2>Player 3</h2>
-            <p>
-                {{ form.name_3.label }}<br>
-                {{ form.name_3(size=20) }}
-                <span>{{ form.name_3.errors[0] }}</span>
-            </p>
-            <p>
-                {{ form.chips_3.label }}<br>
-                {{ form.chips_3() }}
-                <span>{{ form.chips_3.errors[0] }}</span>
-            </p>
-            <p>
-                {{ form.avatar_3.label }}<br>
-                {% for radio in form.avatar_3 %}
-
-                    {{ radio }}
-                    <img class="avatar_form" src="{{ url_for('static', filename='images/faces/'+radio.label|striptags) }}">
-                {% endfor %}
-                <span>{{ form.avatar_3.errors[0] }}</span>
-            </p>
-        </div>
-        <div class="player_form">
-            <h2>Player 4</h2>
-            <p>
-                {{ form.name_4.label }}<br>
-                {{ form.name_4(size=20) }}
-                <span>{{ form.name_4.errors[0] }}</span>
-            </p>
-            <p>
-                {{ form.chips_4.label }}<br>
-                {{ form.chips_4() }}
-                <span>{{ form.chips_1.errors[0] }}</span>
-            </p>
-            <p>
-                {{ form.avatar_4.label }}<br>
-                {% for radio in form.avatar_4 %}
-
-                    {{ radio }}
-                    <img class="avatar_form" src="{{ url_for('static', filename='images/faces/'+radio.label|striptags) }}">
-                {% endfor %}
-                <span>{{ form.avatar_4.errors[0] }}</span>
-            </p>
-        </div>
+            {{ form.hidden_tag() }}
 
 
+    <div class="form_container">
+    {% for player in form_list %}
+            <div class="player_form">
+                <h2>Player {{ loop.index }}</h2>
+                <p>
+                    {{ player['name'].label }}<br>
+                    {{ player['name'](size=20) }}
+                    <span>{{ player['name'].errors[0] }}</span>
+                </p>
+                <p>
+                    {{ player['chips'].label }}<br>
+                    {{ player['chips']() }}
+                    <span>{{ player['chips'].errors[0] }}</span>
+                </p>
+                <p>
+                    {{ player['avatar'].label }}<br>
+                    {% for radio in player['avatar'] %}
+                        {{ radio }}
+                        <img class="avatar_form" src="{{ url_for('static', filename='images/faces/'+radio.label|striptags) }}">
+                        {% if loop.index==2 %}
+                            <br>
+                        {% endif %}
+                    {% endfor %}
+                    <span>{{ player['avatar'].errors[0] }}</span>
+                </p>
+            </div>
+    {% endfor %}
+    </div>
         <p>{{ form.submit() }}</p>
     </form>
 {% endblock %}

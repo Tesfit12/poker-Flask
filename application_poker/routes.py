@@ -5,7 +5,7 @@ import application_poker.forms
 
 @app.route('/poker')
 def launch_poker_game():
-    cards=back_end.generate_cards(4)
+    cards=[]
     return flask.render_template('poker.html',cards=cards,players=back_end.players)
 
 
@@ -14,6 +14,7 @@ def config_game():
     form=application_poker.forms.ConfigGame()
 
     if form.validate_on_submit():
+        back_end.players=[]
 
         player=back_end.Player(form.name_1.data,int(form.chips_1.data),form.avatar_1.data)
         back_end.players.append(player)
