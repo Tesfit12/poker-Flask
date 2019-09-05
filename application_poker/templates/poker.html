@@ -4,14 +4,42 @@
             {% for n in range(4) %}
                 {% if players|length>n %}
                     <div id="player_{{ n+1 }}">
-                        <img src="{{ url_for('static', filename='images/faces/'+players[n].avatar) }}">
-                         <div class="player_property">
-                            Name: {{ players[n].name }}<br>
-                            Chips: {{ players[n].chips }}
-                         </div>
+                        <img class="face_avatar" src="{{ url_for('static', filename='images/faces/'+players[n].avatar) }}">
+                        <div class="player_property">
+                            {{ players[n].name }}<br>
+                            {{ players[n].chips }}
+                        </div>
+                        <div class="cards_hand">
+                            {% for card in players[n].cards %}
+                                {% if card.1=="♦" or card.1=="♥" %}
+                                    {% set class_name="card_poker_red card_pos_"+loop.index|string %}
+                                {% else %}
+                                    {% set class_name="card_poker_black card_pos_"+loop.index|string %}
+                                {% endif %}
+
+
+                                <div class="{{ class_name }}">
+
+                                        {{ card.0 }}
+                                        <div class="card_symbol">
+                                            {% if card.0!="K" and card.0!="Q" and card.0!="J" %}
+                                                {% for n in range(card.0|int) %}
+                                                    {{ card.1 }}
+                                                {% endfor %}
+                                            {% else %}
+                                                {% if card.0=="K" %}
+                                                    <img src="{{ url_for('static', filename='images/face_k.png') }}">
+                                                {% elif card.0=="Q" %}
+                                                    <img src="{{ url_for('static', filename='images/face_q.png') }}">
+                                                {% elif card.0=="J" %}
+                                                    <img src="{{ url_for('static', filename='images/face_j.png') }}">
+                                                {% endif %}
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                            {% endfor %}
+                        </div>
                     </div>
-
-
                 {% else %}
                     <div id="player_{{ n+1 }}"></div>
                 {% endif %}

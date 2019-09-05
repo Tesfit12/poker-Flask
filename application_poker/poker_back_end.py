@@ -22,5 +22,6 @@ class Player():
         self.name=name
         self.chips=chips
         self.avatar=avatar
+        self.cards=generate_cards(2)
 
 players=[]

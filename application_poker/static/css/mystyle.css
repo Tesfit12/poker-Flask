@@ -114,19 +114,16 @@ body
     padding:5px;
     border-radius:15px;
     border-width: 2px;
-    border-color: blue;
+    border-color: red;
     border-style: solid;
 }
 
 
-#player_1 img, #player_2 img, #player_3 img, #player_4 img
+#player_1 .face_avatar, #player_2 .face_avatar, #player_3 .face_avatar, #player_4 .face_avatar
 {
     width:70px;
     height:70px;
     border-radius:35px;
-    border-width: 2px;
-    border-color: blue;
-    border-style: solid;
 }
 
 .player_form
@@ -151,4 +148,21 @@ body
 {
     display:flex;
     flex-direction:row;
+}
+
+.cards_hand
+{
+    position:relative;
+}
+
+.cards_hand .card_pos_1
+{
+    position:absolute;
+    left:0px;
+}
+
+.cards_hand .card_pos_2
+{
+    position:absolute;
+    left:30px;
 }

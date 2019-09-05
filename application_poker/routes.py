@@ -5,8 +5,8 @@ import application_poker.forms
 
 @app.route('/poker')
 def launch_poker_game():
-    cards=[]
-    return flask.render_template('poker.html',cards=cards,players=back_end.players)
+    cards=back_end.generate_cards(3)
+    return flask.render_template('poker.html',players=back_end.players,cards=cards)
 
 
 @app.route("/",  methods=('GET', 'POST'))
