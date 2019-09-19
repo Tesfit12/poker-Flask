@@ -21,13 +21,6 @@ class Player():
     active_player=1
 
 
-    def __init__(self, name, chips, avatar, id):
-        self.name = name
-        self.chips = chips
-        self.avatar = avatar
-        self.cards = generate_cards(2)
-        self.id = id
-
     @classmethod
     def move_to_next_player(cls,list_players):
         index_active=cls.active_player-1
@@ -42,15 +35,6 @@ class Player():
                 i=(i+1)%4
 
         cls.active_player=index_next_player+1
-
-
-
-
-
-
-
-
-
 
 
     def __init__(self,name,chips,avatar,id):

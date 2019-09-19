@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField,RadioField,SelectField
+from wtforms import StringField, SubmitField,RadioField,SelectField,HiddenField
 from wtforms.validators import DataRequired
 
 class ConfigGame(FlaskForm):
@@ -22,9 +22,11 @@ class ConfigGame(FlaskForm):
     chips_4 = SelectField('Chips', choices=[('1000', '1000 chips'), ('2000', '2000 chips'), ('3000', '3000 chips')], validators=[DataRequired()])
     avatar_4 = RadioField('Avatar', choices=[('avatar_1.png','avatar_1.png'),('avatar_2.png','avatar_2.png'),('avatar_3.png','avatar_3.png'),('avatar_4.png','avatar_4.png'),('avatar_5.png','avatar_5.png')])
 
-
-
     submit = SubmitField('Start the game')
 
-class MoveNext(FlaskForm):
-    submit = SubmitField('Move to Next Player')
+class ActionPlayer(FlaskForm):
+    id=HiddenField('xxx')
+    fold = SubmitField('Fold')
+    raisee = SubmitField('Raise')
+    call = SubmitField('Call')
+

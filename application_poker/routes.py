@@ -5,13 +5,24 @@ import application_poker.forms
 
 @app.route('/poker', methods=('GET', 'POST'))
 def launch_poker_game():
-    form = application_poker.forms.MoveNext()
-    if form.validate_on_submit():
+    formActionPlayer = application_poker.forms.ActionPlayer()
+
+
+    if formActionPlayer.validate_on_submit():
+        if formActionPlayer.fold.data:
+            print("Fold")
+        if formActionPlayer.call.data:
+            print("Call")
+        if formActionPlayer.raisee.data:
+            print("Raise")
+
         back_end.Player.move_to_next_player(back_end.players)
-        print("Next is {}".format(back_end.Player.active_player))
+
+
+
 
     cards=back_end.generate_cards(3)
-    return flask.render_template('poker_game.html',players=back_end.players,cards=cards, Player=back_end.Player, form=form)
+    return flask.render_template('poker_game.html',players=back_end.players,cards=cards, Player=back_end.Player, formActionPlayer=formActionPlayer)
 
 
 @app.route("/",  methods=('GET', 'POST'))

@@ -32,9 +32,6 @@
 
 {% block content %}
     <div id="poker_table">
-        <form action="" method="post" novalidate>
-            {{ form.hidden_tag() }}
-            <p>{{ form.submit() }}</p></form>
         {# Display players ---------------------------------------------#}
         {% for n in range(4) %}
             {% if players|length>n %}
@@ -46,7 +43,13 @@
                             <b>{{ players[n].name }}</b><br>
                             {{ players[n].chips }}<br>
                             {% if players[n].id==Player.active_player %}
-                                This is my turn
+                                <form action="" method="post" novalidate>
+                                    {{ formActionPlayer.csrf_token() }}
+                                    {{ formActionPlayer.id(value=players[n].id) }}
+                                    {{ formActionPlayer.fold() }}
+                                    {{ formActionPlayer.call() }}
+                                    {{ formActionPlayer.raisee() }}
+                                </form>
                             {% endif %}
                         </div>
                     </div>
