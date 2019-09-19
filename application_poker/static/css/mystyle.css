@@ -30,7 +30,7 @@ body
   width: 50px;
   padding: 3px;
   border-style: solid;
-  border-width: 2px;	
+  border-width: 1px;
   display: inline-grid;
   border-color: black;
 }
@@ -72,17 +72,22 @@ body
   border-color: black;
 }
 
-#player_1, #player_2, #player_3, #player_4
+.empty_seat
 {
     width:70px;
     height:70px;
-    position:absolute;
     background-image: radial-gradient(brown,black);
     border-radius:35px;
     border-width: 2px;
     border-color: yellow;
     border-style: solid;
 }
+
+#player_1, #player_2, #player_3, #player_4
+{
+    position:absolute;
+}
+
 
 #player_1
 {
@@ -99,19 +104,22 @@ body
 #player_3
 {
     bottom:-70px;
-    left:-70px;
+    right:-70px;
 }
 
 #player_4
 {
     bottom:-70px;
-    right:-70px;
+    left:-70px;
 }
 
 .player_property
 {
     background-color:#FFFFCC;
+    background-image: linear-gradient(#E0F4B3, #C5F753);
     padding:5px;
+    margin:5px;
+    width:90px;
     border-radius:15px;
     border-width: 2px;
     border-color: red;
@@ -123,7 +131,6 @@ body
 {
     width:70px;
     height:70px;
-    border-radius:35px;
 }
 
 .player_form
@@ -165,4 +172,10 @@ body
 {
     position:absolute;
     left:30px;
+}
+
+.player_sub_container
+{
+    display:flex;
+    flex-direction:row;
 }

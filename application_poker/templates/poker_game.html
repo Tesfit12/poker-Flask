@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% macro gen_cards(cards) %}
+    {% for card in cards %}
+        {% set card_position=loop.index|string %}
+        {% if card.1=="♦" or card.1=="♥" %}
+            {% set class_name="card_poker_red card_pos_"+card_position %}
+        {% else %}
+            {% set class_name="card_poker_black card_pos_"+card_position %}
+        {% endif %}
+
+        <div class="{{ class_name }}">
+            {{ card.0 }}
+            <div class="card_symbol">
+                {% if card.0!="K" and card.0!="Q" and card.0!="J" %}
+                    {% for n in range(card.0|int) %}
+                        {{ card.1 }}
+                    {% endfor %}
+                {% else %}
+                    {% if card.0=="K" %}
+                        <img src="{{ url_for('static', filename='images/face_k.png') }}">
+                    {% elif card.0=="Q" %}
+                        <img src="{{ url_for('static', filename='images/face_q.png') }}">
+                    {% elif card.0=="J" %}
+                        <img src="{{ url_for('static', filename='images/face_j.png') }}">
+                    {% endif %}
+                {% endif %}
+            </div>
+        </div>
+    {% endfor %}
+{%- endmacro -%}
+
+{% block content %}
+    <div id="poker_table">
+        <form action="" method="post" novalidate>
+            {{ form.hidden_tag() }}
+            <p>{{ form.submit() }}</p></form>
+        {# Display players ---------------------------------------------#}
+        {% for n in range(4) %}
+            {% if players|length>n %}
+                <div id="player_{{ n+1 }}">
+                    {# Display players data ----------------------------#}
+                    <div class="player_sub_container">
+                        <img class="face_avatar" src="{{ url_for('static', filename='images/faces/'+players[n].avatar) }}">
+                        <div class="player_property">
+                            <b>{{ players[n].name }}</b><br>
+                            {{ players[n].chips }}<br>
+                            {% if players[n].id==Player.active_player %}
+                                This is my turn
+                            {% endif %}
+                        </div>
+                    </div>
+                    {# Display players cards ---------------------------#}
+                    <div class="cards_hand">
+                        {{ gen_cards(players[n].cards) }}
+                    </div>
+                 </div>
+            {% else %}
+                <div id="player_{{ n+1 }}">
+                    <div class="empty_seat"></div>
+                </div>
+            {% endif %}
+        {% endfor %}
+
+        {# Display cards on table --------------------------------------#}
+        <div id="card_area">
+            {{ gen_cards(cards) }}
+        </div>
+    </div>
+{% endblock content %}
